@@ -67,7 +67,10 @@ Administrator PowerShell, normal boot: `scripts\Rollback.ps1`, then reboot.
 
 ### Credits
 
-Approach based on a community post by the author of Feedback Hub report <https://aka.ms/AA13kq1f> (B650 + RZ616 + WH-1000XM6), who first got in-band LE Audio working by patching the MediaTek INFs.
+Approach based on the MSI forum post by **yujie.sang2000** (RZ616 on a B650 board), who first got in-band LE Audio working by modding the MediaTek drivers and filed the Feedback Hub report <https://aka.ms/AA13kq1f>:
+<https://forum-en.msi.com/index.php?threads/bluetooth-le-audio-driver.415346/post-2389342>
+
+In the same thread an MSI moderator stated that LE Audio is not available on AM5 because desktop AM5 lacks AMD's DSP. That's true for the default sideband path, but in-band streaming works without it.
 
 MediaTek driver files are **not** included; download them from Microsoft.
 
@@ -115,6 +118,9 @@ MediaTek driver files are **not** included; download them from Microsoft.
 
 ### 致謝
 
-做法來自 Feedback Hub 回報 <https://aka.ms/AA13kq1f> 作者的社群貼文（B650 + RZ616 + WH-1000XM6），他最先透過修改 MediaTek INF 讓 in-band LE Audio 成功運作。
+做法來自 MSI 論壇使用者 **yujie.sang2000** 的貼文（B650 主機板 + RZ616）。他最先透過修改 MediaTek 驅動，讓 in-band LE Audio 成功運作，也提交了 Feedback Hub 回報 <https://aka.ms/AA13kq1f>：
+<https://forum-en.msi.com/index.php?threads/bluetooth-le-audio-driver.415346/post-2389342>
+
+同一串討論中，MSI 版主表示 AM5 桌機缺少 AMD DSP，所以不支援 LE Audio。這對預設的 sideband 路線來說是對的，但 in-band 傳輸不需要 DSP 也能運作。
 
 本 repo **不包含** MediaTek 驅動檔案，請自行從 Microsoft 下載。
