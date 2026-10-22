@@ -4,6 +4,23 @@
 >
 > 🤖 本 repo 的腳本與說明由 Claude（Anthropic 的 AI）在與 repo 作者一起除錯時撰寫，只在一台電腦上測試過，使用風險自負。
 
+## Test environment / 實驗環境
+
+> ⚠️ Verified on **this single machine only**. Other boards, BIOS versions, drivers or headsets may behave differently.
+>
+> ⚠️ **僅在下列這一台電腦上驗證過**，其他主機板、BIOS、驅動或耳機的結果可能不同。
+
+| Item / 項目 | Value / 內容 |
+|---|---|
+| Motherboard / 主機板 | **MSI MPG B650I EDGE WIFI (MS-7D73)**, BIOS 1.L2 (2026-06-28) |
+| CPU | AMD Ryzen 7 9800X3D (AM5 desktop, **no AMD ACP / audio DSP** / 桌機，**沒有 ACP 音訊 DSP**) |
+| OS / 作業系統 | Windows 11 Pro 26H2, build 26300.9711 |
+| Bluetooth card / 藍牙網卡 | Onboard AMD RZ616 (MediaTek MT7922), `USB\VID_0E8D&PID_0616&MI_00` |
+| Bluetooth driver / 藍牙驅動 | MediaTek `mtkbtfilter` 1.1147.0.618 (patched / 修改版) |
+| LE Audio driver / LE Audio 驅動 | MediaTek `mtkbtacx` 1.7.0.52 (unmodified, signed / 未修改、有簽章) |
+| Headphones / 耳機 | Sony WH-1000XM6, "LE Audio priority" in Sony Sound Connect / Sound Connect 設為「LE Audio 優先」 |
+| Date / 日期 | 2026-10 |
+
 [English](#english) | [繁體中文](#繁體中文)
 
 ---
@@ -12,17 +29,7 @@
 
 Enable real **Bluetooth LE Audio (LC3)** on an **AMD desktop** with the **AMD RZ616 (MediaTek MT7922)** Wi-Fi/Bluetooth card, without turning off Secure Boot or enabling test-signing mode.
 
-### Tested setup
-
-| | |
-|---|---|
-| Board / CPU | MSI MPG B650I EDGE WIFI, Ryzen 7 9800X3D (AM5, **no AMD ACP/DSP**) |
-| OS | Windows 11 build 26300 |
-| Bluetooth driver | MediaTek 1.1147.0.618 |
-| LE Audio driver | MediaTek `mtkbtacx` 1.0007.0.52 |
-| Headphones | Sony WH-1000XM6 ("LE Audio priority" set in Sony Sound Connect) |
-
-Result: the **"Use LE Audio when available"** toggle appears, the XM6 connects over LE (ASCS/PACS/CAS/VCS…), and Windows creates the *MediaTek Bluetooth LE Render/Capture Audio Device* endpoints.
+Tested on the machine listed in [Test environment](#test-environment--實驗環境). Result: the **"Use LE Audio when available"** toggle appears, the XM6 connects over LE (ASCS/PACS/CAS/VCS…), and Windows creates the *MediaTek Bluetooth LE Render/Capture Audio Device* endpoints.
 
 ### Why it doesn't work out of the box
 
@@ -70,17 +77,7 @@ MediaTek driver files are **not** included; download them from Microsoft.
 
 在 **AMD 桌機**上，讓 **AMD RZ616（MediaTek MT7922）** 網卡用上真正的**藍牙 LE Audio（LC3）**。不需要關閉 Secure Boot，也不需要開 test signing。
 
-### 測試環境
-
-| | |
-|---|---|
-| 主機板 / CPU | MSI MPG B650I EDGE WIFI、Ryzen 7 9800X3D（AM5，**沒有 AMD ACP/DSP**） |
-| 系統 | Windows 11 build 26300 |
-| 藍牙驅動 | MediaTek 1.1147.0.618 |
-| LE Audio 驅動 | MediaTek `mtkbtacx` 1.0007.0.52 |
-| 耳機 | Sony WH-1000XM6（Sony Sound Connect 設為「LE Audio 優先」） |
-
-結果：設定裡出現 **「可用時使用 LE Audio」**，XM6 透過 LE 連線（ASCS/PACS/CAS/VCS…），並產生 *MediaTek Bluetooth LE Render/Capture Audio Device*。
+測試機器見上方[實驗環境](#test-environment--實驗環境)。結果：設定裡出現 **「可用時使用 LE Audio」**，XM6 透過 LE 連線（ASCS/PACS/CAS/VCS…），並產生 *MediaTek Bluetooth LE Render/Capture Audio Device*。
 
 ### 為什麼原本不行
 
